@@ -3,9 +3,13 @@ import React from 'react'
 export default function page() {
   return (
     <main>
-        <b><h1>Sporting Clube de Portugal</h1></b>
-        <h2>Desde 1906</h2>
-        <i><p>"Queremos que o Sporting seja um grande Clube, tão grande como os maiores da Europa"</p></i>
+        <h1>"Projeto next.js/react.js"</h1>
+        <p>
+          "Este é a Home Page do projeto 3 da unidade curricular Desenvolvimento de interfaces web, aqui estão desenvolvidos o LAB11 e o LAB12.
+          Esta secção que é relativa ao projeto 3, tem como base a promoção e ensino do uso da tecnologias next.js e react.js.
+          "
+        </p>
+
     </main>
   )
 }

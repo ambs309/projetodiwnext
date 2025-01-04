@@ -13,6 +13,9 @@ interface CartItem extends Product {
 }
 
 export default function Produtos() {
+
+<h1>DEISI SHOP</h1>
+
   const { data, error, isLoading } = useSWR<Product[]>('/api/products', fetcher);
 
   const [search, setSearch] = useState('');
