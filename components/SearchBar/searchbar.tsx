@@ -19,12 +19,13 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         type="text"
         placeholder="Pesquisar produtos..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => {
+          const value = e.target.value;
+          setSearchTerm(value);
+          onSearch(value); // Enviar a atualização ao estado imediatamente
+        }}
         className="input"
       />
-      <button onClick={handleSearch} className="button">
-        Pesquisar
-      </button>
     </div>
   );
 }
