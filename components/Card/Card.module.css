@@ -82,3 +82,41 @@
     background-color: #ffffff;
     color: #5f361d;
   }
+
+  .cart {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cart-item h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .cart-item p {
+    font-size: 0.9rem;
+  }
+  
+  .cart-item button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cart-item button:hover {
+    background-color: darkred;
+  }
+  

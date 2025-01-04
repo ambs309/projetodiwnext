@@ -31,10 +31,9 @@ export default function Card({ id, title, price, category, description, image, r
           className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300"
           onClick={() => addItemToCart({ id, title, price, category, description, image, rating })}
         >
-          + Adicionar ao Cesto
+          + Adicionar ao Carrinho
         </button>
       </div>
     </div>
   );
 }
-

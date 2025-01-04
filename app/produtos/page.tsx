@@ -1,45 +1,31 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useSWR from 'swr';
 import { Product } from '@/app/models/interfaces';
 import Card from '@/components/Card/card';
-import SearchBar from '@/components/SearchBar/searchbar';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Produtos() {
   const { data, error, isLoading } = useSWR<Product[]>('/api/products', fetcher);
 
-  const [search, setSearch] = useState('');
   const [cart, setCart] = useState<Product[]>([]);
-  const [filteredData, setFilteredData] = useState<Product[]>([]);
 
-  // Carregar o carrinho do localStorage
-  useEffect(() => {
-    const savedCart = localStorage.getItem('produtos-selecionados');
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
-
-  // Salvar o carrinho no localStorage
-  useEffect(() => {
-    localStorage.setItem('produtos-selecionados', JSON.stringify(cart));
-  }, [cart]);
-
-  // Atualizar os produtos filtrados
-  useEffect(() => {
-    if (data) {
-      const newFilteredData = data.filter((product) =>
-        product.title.toLowerCase().includes(search.toLowerCase())
-      );
-      setFilteredData(newFilteredData);
-    }
-  }, [search, data]);
-
+  // Função para adicionar itens ao carrinho
   const addItemToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
+    setCart((prevCart) => {
+      // Verificar se o produto já está no carrinho
+      if (prevCart.some((item) => item.id === product.id)) {
+        return prevCart; // Se já existir, não adiciona novamente
+      }
+      return [...prevCart, product];
+    });
+  };
+
+  // Função para remover itens do carrinho
+  const removeFromCart = (productId: number) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
 
   if (isLoading) {
@@ -56,14 +42,37 @@ export default function Produtos() {
 
   return (
     <div>
-      {/* Barra de Pesquisa */}
-      <SearchBar onSearch={(query) => setSearch(query)} />
-
       {/* Lista de Produtos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {filteredData.map((produto) => (
+        {data.map((produto) => (
           <Card key={produto.id} {...produto} addItemToCart={addItemToCart} />
         ))}
+      </div>
+
+      {/* Carrinho */}
+      <div className="mt-8 p-4 border-t">
+        <h2 className="text-xl font-bold">Produtos Selecionados</h2>
+        {cart.length === 0 ? (
+          <p className="text-gray-600">Nenhum produto selecionado.</p>
+        ) : (
+          <div>
+            <p className="font-semibold">Custo total: {cart.reduce((total, item) => total + item.price, 0).toFixed(2)} €</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+              {cart.map((item) => (
+                <div key={item.id} className="p-4 border rounded shadow">
+                  <h3 className="font-bold">{item.title}</h3>
+                  <p>{item.price.toFixed(2)} €</p>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                  >
+                    Remover do Carrinho
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

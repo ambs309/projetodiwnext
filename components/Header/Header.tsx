@@ -17,9 +17,6 @@ export default function Header() {
           <li>
             <Link href="/tecnologias">Tecnologias</Link>
           </li>
-          <li>
-            <Link href="/cart">Carrinho</Link>
-          </li>
         </ul>
       </nav>
     </header>
