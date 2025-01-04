@@ -1,19 +1,16 @@
-// produtos/page.tsx
 'use client';
 
 import React from 'react';
 import useSWR from 'swr';
 import { Product } from '@/app/models/interfaces';
-import Card from "@/components/Card/card";
-
+import Card from '@/components/Card/card';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Produtos() {
-  const { data, error, isLoading } = useSWR<Product[]>('/api/produtos', fetcher);
+  const { data, error, isLoading } = useSWR<Product[]>('/api/products', fetcher);
 
   const addToCart = (product: { id: number; title: string; price: number; image: string }) => {
-    // Lógica para adicionar ao carrinho
     console.log('Produto adicionado ao carrinho:', product);
   };
 
@@ -31,9 +28,10 @@ export default function Produtos() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-      {data.map((produto) => (null
-       // <Card key={produto.id} product={produto} addToCart={addToCart} />
+      {data.map((produto) => (
+        <Card key={produto.id} {...produto} addToCart={addToCart} />
       ))}
     </div>
   );
 }
+
