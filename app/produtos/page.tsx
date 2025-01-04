@@ -19,6 +19,7 @@ export default function Produtos() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [filteredData, setFilteredData] = useState<Product[]>([]);
 
+  // Atualiza os produtos filtrados com base na busca
   useEffect(() => {
     if (data) {
       const filtered = data.filter((product) =>
@@ -28,6 +29,7 @@ export default function Produtos() {
     }
   }, [search, data]);
 
+  // Adiciona um produto ao carrinho
   const addItemToCart = (product: Product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -40,6 +42,7 @@ export default function Produtos() {
     });
   };
 
+  // Remove um produto ou diminui sua quantidade no carrinho
   const removeFromCart = (productId: number) => {
     setCart((prevCart) =>
       prevCart
@@ -52,17 +55,20 @@ export default function Produtos() {
     );
   };
 
+  // Realiza a compra
   const buy = () => {
-    fetch('/api/deisishop/buy', {
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+
+    fetch('/api/products/deisishop/buy', {
       method: 'POST',
       body: JSON.stringify({
         products: cart.map((product) => ({
           id: product.id,
           quantity: product.quantity,
         })),
-        name: 'Nome do Cliente', // Substitua pelo nome real
+        name: 'Nome do Cliente', // Substituir com informações reais
         student: false,
-        coupon: '', // Caso tenha cupons
+        coupon: '', // Substituir com cupons, se necessário
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -74,12 +80,13 @@ export default function Produtos() {
         }
         return response.json();
       })
-      .then((response) => {
-        console.log('Compra realizada com sucesso:', response);
+      .then(() => {
+        alert(`Compra realizada com sucesso! Total: ${totalPrice} €`);
         setCart([]); // Limpa o carrinho
       })
       .catch((error) => {
         console.error('Erro ao realizar a compra:', error);
+        alert('Ocorreu um erro ao realizar a compra. Por favor, tente novamente.');
       });
   };
 
