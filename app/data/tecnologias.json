@@ -43,7 +43,7 @@
     },
     {
       "title": "Codespaces",
-      "image": "public/images/github-vscode-mark.png",
+      "image": "/images/github-vscode-mark.png",
       "description": "Ambiente de desenvolvimento na nuvem.",
       "rating": 4
     },
