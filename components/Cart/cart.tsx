@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '@/app/models/interfaces';
 
+
 export default function Cart() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
