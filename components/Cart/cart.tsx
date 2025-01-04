@@ -6,6 +6,7 @@ import { Product } from '@/app/models/interfaces';
 export default function Cart() {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
+  // Carregar itens do carrinho do localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem('produtos-selecionados');
     if (savedCart) {
@@ -13,6 +14,7 @@ export default function Cart() {
     }
   }, []);
 
+  // Remover item do carrinho
   const removeFromCart = (productId: number) => {
     const updatedCart = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCart);
