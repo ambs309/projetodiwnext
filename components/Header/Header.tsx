@@ -11,6 +11,13 @@ export default function Header() {
                 <li>
 <Link href={"https://didactic-journey-5gvgr65ggrqgf45gj-3000.app.github.dev/"}>Home</Link>
                 </li>
+                <li>
+            <Link href="/produtos">Produtos</Link>
+          </li>
+          <li>
+            <Link href="/tecnologias">Tecnologias</Link>
+          </li>
+  
             </ul>
             </nav>
     </header>

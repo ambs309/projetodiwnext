@@ -1,0 +1,75 @@
+[
+    {
+      "title": "HTML",
+      "image": "public/images/HTML5_logo_and_wordmark.svg.png",
+      "description": "Linguagem de marcação para estruturar conteúdo web.",
+      "rating": 5
+    },
+    {
+      "title": "CSS",
+      "image": "public/images/CSS3_logo_and_wordmark.svg.png",
+      "description": "Linguagem para estilização de páginas web.",
+      "rating": 4.5
+    },
+    {
+      "title": "JavaScript",
+      "image": "public/images/transparent-logo-javascript-7.png",
+      "description": "Linguagem de programação para adicionar interatividade.",
+      "rating": 5
+    },
+    {
+      "title": "JSON",
+      "image": "public/images/json_logo_icon_168490.png",
+      "description": "Formato leve para troca de dados.",
+      "rating": 4.5
+    },
+    {
+      "title": "API RESTful",
+      "image": "public/images/1_J3G3akaMpUOLegw0p0qthA.png",
+      "description": "Interface para comunicação entre sistemas.",
+      "rating": 4
+    },
+    {
+      "title": "Swagger",
+      "image": "/images/swagger-logo.png",
+      "description": "Ferramenta para documentação de APIs.",
+      "rating": 4
+    },
+    {
+      "title": "GitHub",
+      "image": "public/images/25231.png",
+      "description": "Plataforma para versionamento de código.",
+      "rating": 5
+    },
+    {
+      "title": "Codespaces",
+      "image": "public/images/github-vscode-mark.png",
+      "description": "Ambiente de desenvolvimento na nuvem.",
+      "rating": 4
+    },
+    {
+      "title": "GitHub Pages",
+      "image": "public/images/github-pages-examples.png",
+      "description": "Serviço para hospedar sites estáticos.",
+      "rating": 4
+    },
+    {
+      "title": "React.js",
+      "image": "public/images/React.webp",
+      "description": "Biblioteca para criação de interfaces web.",
+      "rating": 5
+    },
+    {
+      "title": "Next.js",
+      "image": "public/images/nextjs-icon-512x512-11yvtwzn.png",
+      "description": "Framework para React com funcionalidades modernas.",
+      "rating": 5
+    },
+    {
+      "title": "Vercel",
+      "image": "public/images/Vercel-01.webp",
+      "description": "Plataforma para deploy de aplicações web.",
+      "rating": 4.5
+    }
+  ]
+  
