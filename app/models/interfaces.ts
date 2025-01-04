@@ -18,3 +18,6 @@ export interface Product {
     description: string;
     rating: number;
   }
+
+ 
+  
