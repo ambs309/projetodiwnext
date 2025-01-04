@@ -1,0 +1,28 @@
+.checkout {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .checkout-button {
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .checkout-button:hover {
+    background-color: darkgreen;
+  }
+  
